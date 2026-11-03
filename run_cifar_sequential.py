@@ -204,9 +204,12 @@ def attack_active(round_id, start, mode='persistent', period=4, duration=1):
 
 def train_round(model, dataset, parts, device, *, seed, round_id, participation=1.,
                 attack='none', attack_start=16, attack_mode='persistent',
-                attack_period=4, attack_duration=1, malicious_fraction=.2):
+                attack_period=4, attack_duration=1, malicious_fraction=.2,
+                update_observer=None, aggregation='fedavg'):
     if attack not in ('none', 'signflip', 'labelflip') or not 0 <= malicious_fraction <= 1:
         raise ValueError('invalid attack configuration')
+    if aggregation not in ('fedavg','evidence-filter') or (aggregation=='evidence-filter' and update_observer is None):
+        raise ValueError('evidence-filter requires an explicit pre-aggregation observer')
     selected = select_participants(parts, participation, np.random.default_rng([seed, round_id]))
     updates, sizes = [], []
     malicious_count = math.ceil(len(parts)*malicious_fraction)
@@ -223,7 +226,12 @@ def train_round(model, dataset, parts, device, *, seed, round_id, participation=
             update = {key: -value for key, value in update.items()}
         updates.append(update)
         sizes.append(len(parts[client]))
-    weights = apply_aggregate(model, updates, sizes)
+    alarms = [bool(update_observer(client,update)) for client,update in zip(selected,updates)] if update_observer else [False]*len(updates)
+    masses = np.asarray(sizes,dtype=float)
+    if aggregation=='evidence-filter':
+        masses = masses*np.logical_not(alarms)
+    # All excluded is a no-op, not renormalization of zero or re-admission.
+    weights = apply_aggregate(model, updates, masses) if masses.sum()>0 else np.zeros(len(updates))
     return selected, updates, weights
 
 
@@ -249,6 +257,8 @@ def main():
                         help='ASSUMED conditional mean error bound, not a certificate')
     parser.add_argument('--family-alpha', type=float, default=.05)
     parser.add_argument('--feature-scale', type=float, default=.01)
+    parser.add_argument('--aggregation',choices=['fedavg','evidence-filter'],default='fedavg',
+                        help='candidate alarm filter; no claim of complete validated SETA-FL')
     args = parser.parse_args()
     if args.clients < 1 or args.rounds < 1 or not math.isfinite(args.alpha) or args.alpha <= 0:
         parser.error('clients, rounds and Dirichlet alpha must be positive')
@@ -286,17 +296,13 @@ def main():
     test_loader = DataLoader(test, batch_size=256, shuffle=False)
     model = SmallCNN().to(device)
     rows, client_rows = [], []
-    print('Conditional validity assumed, not certified. FedAvg baseline; no automatic trusted-history admission.')
+    print(f'Conditional validity assumed, not certified. Aggregation={args.aggregation}; no automatic trusted-history admission.')
     for round_id in range(1, args.rounds+1):
         # Freeze ALL predictions before any current-round training or updates.
         predictions = [history.predict(args.mean_error_bound) for history in histories]
         current_parts = drift_parts if round_id >= args.drift_round else parts
-        selected, updates, weights = train_round(
-            model, train, current_parts, device, seed=args.seed, round_id=round_id,
-            participation=args.participation, attack=args.attack, attack_start=args.attack_start,
-            attack_mode=args.attack_mode, attack_period=args.attack_period,
-            attack_duration=args.attack_duration, malicious_fraction=args.malicious_fraction)
-        for client, update, weight in zip(selected, updates, weights):
+        round_logs = {}
+        def observe(client, update):
             features = update_features(update, scale=args.feature_scale)
             prediction = predictions[client]
             score, log_e, alarm = None, None, False
@@ -304,11 +310,20 @@ def main():
                 score = prediction.score(features)
                 log_e, alarm = monitors[client].update(score, prediction.mean, prediction.mean_error_bound)
             histories[client].observe(features, round_id=round_id, alarm=alarm)
-            client_rows.append(dict(round=round_id, client=client, score=score, log_e=log_e,
-                                    alarm=alarm, detector_enabled=prediction is not None,
-                                    predicted_mean=prediction.mean if prediction else None,
-                                    mean_error_bound=args.mean_error_bound,
-                                    trusted_count=len(histories[client].trusted), weight=float(weight)))
+            round_logs[client] = dict(round=round_id, client=client, score=score, log_e=log_e,
+                                     alarm=alarm, detector_enabled=prediction is not None,
+                                     predicted_mean=prediction.mean if prediction else None,
+                                     mean_error_bound=args.mean_error_bound,
+                                     trusted_count=len(histories[client].trusted))
+            return alarm
+        selected, updates, weights = train_round(
+            model, train, current_parts, device, seed=args.seed, round_id=round_id,
+            participation=args.participation, attack=args.attack, attack_start=args.attack_start,
+            attack_mode=args.attack_mode, attack_period=args.attack_period,
+            attack_duration=args.attack_duration, malicious_fraction=args.malicious_fraction,
+            update_observer=observe, aggregation=args.aggregation)
+        for client, weight in zip(selected, weights):
+            client_rows.append(dict(**round_logs[client],weight=float(weight)))
         loss, accuracy = evaluate(model, test_loader, device)
         rows.append(dict(round=round_id, test_loss=loss, test_accuracy=accuracy,
                          participants=len(selected), alarm_clients=sum(m.alarmed for m in monitors)))

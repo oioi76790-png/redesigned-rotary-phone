@@ -3,7 +3,9 @@
 This is a development and mathematical-validation scaffold, **not** a validated
 SETA-FL reproduction. The detector's theorem requires a correct predictable
 conditional-mean envelope. Fitting history alone does not establish that envelope.
-Aggregation remains sample-weighted FedAvg; detection does not yet set trust weights.
+Default aggregation remains sample-weighted FedAvg. An opt-in
+`--aggregation evidence-filter` excludes latched alarms before aggregation;
+this is an experimental candidate pipeline, not a validated complete method.
 
 ## Files
 
@@ -15,6 +17,9 @@ Aggregation remains sample-weighted FedAvg; detection does not yet set trust wei
 - `tests/`: training, attack, aggregation, predictability and mathematical tests.
 - [docs/MATH.md](docs/MATH.md): old/new formulas, hypotheses, proof and limitations.
 - [reports/STAGE2_REPORT.zh-CN.md](reports/STAGE2_REPORT.zh-CN.md): actual test results.
+- [reports/stage3/STAGE3_REPORT.zh-CN.md](reports/stage3/STAGE3_REPORT.zh-CN.md):
+  10,000-replication stress tests, calibration strategies, matched-data ablations,
+  plots and negative results.
 - `config.example.json`: pilot suggestions only; not automatically loaded.
 
 ## Environment and validation
@@ -42,11 +47,46 @@ The simulations run 1000 independent replications in **each of seven scenarios**
 CSV has one row per replication; JSON includes seed, rates, Wilson intervals,
 conditional mean delays and censored/restricted delay summaries.
 
-## Dataset and training (not run in this stage)
+## Stage-three statistical validation
+
+See [docs/STAGE3_THEORY.md](docs/STAGE3_THEORY.md) for filtration, Hoeffding
+parameters, the supermartingale proof and calibration failure budgets.
+Fixed-anchor and rolling independent-reference bounds require a stable affine
+conditional mean. The conservative envelope requires no mean model and has no
+useful detection power. These certificates do not apply automatically to real FL.
+
+The protocols in `configs/stage3*.json` were saved before their corresponding
+runs. To reproduce statistical outputs, without CIFAR training:
+
+```bash
+python -m unittest discover -s tests -v
+python stress_validation.py
+python stress_validation.py --config configs/stage3_misspecification.json --out reports/stage3/misspecification
+python stress_validation.py --config configs/stage3_boundary.json --out reports/stage3/boundary
+python matched_ablation.py
+export XDG_CACHE_HOME=/workspace/.cache
+export MPLCONFIGDIR=/workspace/.cache/matplotlib
+python plot_stage3.py
+python build_stage3_report.py
+python audit_stage3.py
+```
+
+Raw CSV files are gzip compressed. Every scenario/strength cell has 10,000
+replications paired across three alpha levels and seven ablations. Predictor-only
+methods have no detection rates. Each experiment preserves the runner source used
+in `source_snapshot/`; its config and output hashes are recorded. Negative controls
+explicitly demonstrate false alarms on unobserved benign drift and failures on
+weak/late attacks. Do not tune parameters from these test outcomes.
+
+## Dataset and training (real data blocked in this stage)
 
 CIFAR-10 is loaded through torchvision with its standard integrity checks.
 Downloads require `www.cs.toronto.edu` and its redirect
 `cave.cs.toronto.edu`; cloud network settings may need review.
+See [docs/CIFAR_IMPORT.md](docs/CIFAR_IMPORT.md) for integrity-checked local archive
+or batch-directory import. `python cifar_smoke.py --root ./data` uses only 32 real
+training images and one aggregation when data exists; otherwise it reports a
+blocked result and does not substitute fake data.
 For a later authorized run, the CLI supports:
 
 ```bash
@@ -100,7 +140,7 @@ trusted count, actual weight, and latched alarm to `results/`.
 
 - Validate conditional prediction under model evolution, Non-IID data, participation
   selection and benign drift; implement an independently justified error envelope.
-- Define and analyze how sequential evidence changes aggregation weights.
+- Analyze the candidate alarm filter's selection feedback, convergence and calibration.
 - Evaluate real-data detection and implement reference baselines under matched settings.
 - Improve feature coverage and late/intermittent attack power; the low-dimensional
   sketch can miss attacks.

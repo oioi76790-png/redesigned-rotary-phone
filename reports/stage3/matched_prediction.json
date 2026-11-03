@@ -1,0 +1,65 @@
+{
+  "specification": {
+    "source_config": "configs/stage3.json",
+    "seed": 2026110303,
+    "trials": 10000,
+    "training_budget": "Exactly the same two anchors (1024 each) for unconditional and conditional predictors; only use of context differs.",
+    "scenarios": [
+      "normal_iid",
+      "normal_non_iid",
+      "normal_dynamic_drift",
+      "normal_gradual_drift"
+    ],
+    "evaluation": "Prediction MSE only; no detector parameter changes or attack-label fitting."
+  },
+  "summary": [
+    {
+      "scenario": "normal_iid",
+      "trials": 10000,
+      "training_samples_per_method": 2048,
+      "history_mse": 1.0555955116893555e-06,
+      "conditional_mse": 1.0555955116893555e-06,
+      "paired_improvement": 0.0,
+      "paired_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "normal_non_iid",
+      "trials": 10000,
+      "training_samples_per_method": 2048,
+      "history_mse": 1.0388757014871894e-06,
+      "conditional_mse": 1.0388757014871894e-06,
+      "paired_improvement": 0.0,
+      "paired_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "normal_dynamic_drift",
+      "trials": 10000,
+      "training_samples_per_method": 2048,
+      "history_mse": 0.0625010302284087,
+      "conditional_mse": 2.088660950514851e-06,
+      "paired_improvement": 0.06249894156745818,
+      "paired_ci95": [
+        0.062498912315124194,
+        0.062498970819792166
+      ]
+    },
+    {
+      "scenario": "normal_gradual_drift",
+      "trials": 10000,
+      "training_samples_per_method": 2048,
+      "history_mse": 0.021008706325257656,
+      "conditional_mse": 1.3852747238229747e-06,
+      "paired_improvement": 0.021007321050533836,
+      "paired_ci95": [
+        0.02100731138683774,
+        0.021007330714229933
+      ]
+    }
+  ]
+}

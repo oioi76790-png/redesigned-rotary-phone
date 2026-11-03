@@ -1,0 +1,5 @@
+scenario,strength,baseline,trials,mse_improvement,paired_ci95
+normal_unobserved_dynamic_drift,0.0,history_mean,10000,3.905416534304195e-06,"[-3.350227883824775e-05, 4.1313111906856146e-05]"
+normal_unobserved_dynamic_drift,0.0,rolling_mean,10000,-0.3418072283868635,"[-0.34182907211408325, -0.34178538465964375]"
+normal_unobserved_gradual_drift,0.0,history_mean,10000,-1.0560204359014996e-05,"[-3.311284454426365e-05, 1.1992435826233655e-05]"
+normal_unobserved_gradual_drift,0.0,rolling_mean,10000,-0.14061537729018517,"[-0.1406284320550916, -0.14060232252527874]"

@@ -1,0 +1,3 @@
+{"scenario": "normal_unobserved_dynamic_drift", "strength": 0.0, "trajectories": 10000, "rows": 210000, "seconds": 11.56}
+{"scenario": "normal_unobserved_gradual_drift", "strength": 0.0, "trajectories": 10000, "rows": 210000, "seconds": 10.69}
+All frozen-protocol cells completed.

@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "raw_rows": 3990000,
+  "cells": 19,
+  "trials_per_cell": 10000,
+  "paired_prediction_rows": 40000,
+  "summary_rows": 399,
+  "unit_tests": {
+    "total": 34,
+    "passed": 33,
+    "skipped": 1,
+    "failed": 0
+  },
+  "full_cell_replayed": true,
+  "current_source_sha256": {
+    "run_cifar_sequential.py": "6e1e2c8a018ac0e64988965fbb3295c73daec387ae5009a65026eb7f13238f9b",
+    "seta_statistics.py": "a24299ff09cd21319f671b183a59c61d03b27bfac1a41754f637fd37bf34a603",
+    "calibration.py": "5ca25a449e85cfeaf8d6e3b2feecb62359fa38dab8437f801687993230b63adc",
+    "stress_validation.py": "b0229c5ee62f2cea636206418cbf585dde33639b2b07848c576a4eb88927ce4e",
+    "matched_ablation.py": "5fa7d36526ae6ef758a38c605d33cc92fd775d70e39cf7a9c830dfeb81cba98d",
+    "cifar_smoke.py": "dfe52dbef9ada90ac42febb1ff735f444962bbb66af7c9f987f81569a0c930da",
+    "plot_stage3.py": "69c0c7ca01d5ceaef96b472b27fdcf303ea7b37681b6095bac8e2ea0e4f809cb",
+    "build_stage3_report.py": "66d922e84288dfe8199e0e990d6a6e0ebb715002f9aa7bbcb1d282e83ea46315",
+    "audit_stage3.py": "5de9edc0f1b8f8a744fd9dcc43946204641a513a4775a2dd6a9c319fa08221e3",
+    "tests/test_calibration.py": "b07cbd6af8910aa25125c5a473494e9ade621dd822ce8845fa1027fddb92cc34",
+    "tests/test_training.py": "1fdbc48a6f4eaf8c330b624bf5a970889bd593c3cce2c8842d9e10dc74995e8f",
+    "tests/test_statistics.py": "bfbc4c6b38bfecffa473c16e8f5bdf5e3b29a22411946370cf09223c0ffa0f5d",
+    "configs/stage3.json": "65099604a8e2b4b91f0ff39816e0828e52a62659f74ef9b0fc756d154a44cc2c",
+    "configs/stage3_boundary.json": "d1293fca941660ccd0b249269cdf0c33d1ab08d134caf0a89bff3e3988e41418",
+    "configs/stage3_matched_ablation.json": "eda724b6696cb76e0f0603d0a801f25ee4697575fe6cdb618f1ce866958e579d",
+    "configs/stage3_misspecification.json": "220bc0b48e8d1c38d3fdd55f66b9607bd4164b5fea26f550f9f40c691c1a26df"
+  },
+  "real_cifar": {
+    "dataset": "CIFAR-10",
+    "official_url": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+    "official_archive_md5": "c58f30108f718f92721af3b95e74349a",
+    "root": "/workspace/redesigned-rotary-phone/data",
+    "download_requested": true,
+    "full_training_run": false,
+    "status": "blocked",
+    "error_type": "URLError",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "smoke_passed": false
+  }
+}

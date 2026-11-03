@@ -1,0 +1,3 @@
+scenario,strength,baseline,trials,mse_improvement,paired_ci95
+normal_boundary_rademacher,0.0,history_mean,10000,0.00048804807662963866,"[0.0004582008761492914, 0.000517895277109986]"
+normal_boundary_rademacher,0.0,rolling_mean,10000,0.0004975505065917968,"[0.00048311586198606954, 0.000511985151197524]"

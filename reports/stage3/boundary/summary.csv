@@ -1,0 +1,22 @@
+scenario,strength,method,alpha,trials,has_detector,false_alarm_window,false_alarm_rate,false_alarm_ci95,false_alarms,detection_rate,detection_ci95,at_risk,detected,censored,mean_delay,delay_mcse,restricted_mean_delay,prediction_mse,aggregation_mse,counterfactual_aggregation_mse,benign_envelope_violation_rate
+normal_boundary_rademacher,0.0,history_mean,0.01,10000,False,1..240,,,,,,,,,,,,0.0009770023345947265,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,rolling_mean,0.01,10000,False,1..240,,,,,,,,,,,,0.0009865047645568846,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,conditional,0.01,10000,False,1..240,,,,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,conditional_seq_fixed,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,conditional_seq_rolling,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0009865047645568846,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,conditional_seq_conservative,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,full_seta_candidate,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,history_mean,0.05,10000,False,1..240,,,,,,,,,,,,0.0009770023345947265,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,rolling_mean,0.05,10000,False,1..240,,,,,,,,,,,,0.0009865047645568846,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,conditional,0.05,10000,False,1..240,,,,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,conditional_seq_fixed,0.05,10000,True,1..240,0.0006,"[0.0002750134763309977, 0.001308524096300786]",6.0,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,conditional_seq_rolling,0.05,10000,True,1..240,0.0004,"[0.00015556283662307484, 0.0010281283353569795]",4.0,,,,,,,,,0.0009865047645568846,0.19979826666666609,0.0,0.0001
+normal_boundary_rademacher,0.0,conditional_seq_conservative,0.05,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,full_seta_candidate,0.05,10000,True,1..240,0.0006,"[0.0002750134763309977, 0.001308524096300786]",6.0,,,,,,,,,0.0004889542579650879,0.19982501249999943,2.7462499999999936e-05,0.0
+normal_boundary_rademacher,0.0,history_mean,0.1,10000,False,1..240,,,,,,,,,,,,0.0009770023345947265,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,rolling_mean,0.1,10000,False,1..240,,,,,,,,,,,,0.0009865047645568846,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,conditional,0.1,10000,False,1..240,,,,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,
+normal_boundary_rademacher,0.0,conditional_seq_fixed,0.1,10000,True,1..240,0.0043,"[0.003194074401536842, 0.005786621583151935]",43.0,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,conditional_seq_rolling,0.1,10000,True,1..240,0.0016,"[0.0009851326596934777, 0.002597636916196953]",16.0,,,,,,,,,0.0009865047645568846,0.19979826666666609,0.0,0.0004
+normal_boundary_rademacher,0.0,conditional_seq_conservative,0.1,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0004889542579650879,0.19979826666666609,0.0,0.0
+normal_boundary_rademacher,0.0,full_seta_candidate,0.1,10000,True,1..240,0.0043,"[0.003194074401536842, 0.005786621583151935]",43.0,,,,,,,,,0.0004889542579650879,0.19996118333333276,0.00017374999999999962,0.0

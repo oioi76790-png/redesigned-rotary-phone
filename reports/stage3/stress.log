@@ -1,0 +1,17 @@
+{"scenario": "normal_iid", "strength": 0.0, "trajectories": 10000, "rows": 210000, "seconds": 10.97}
+{"scenario": "normal_non_iid", "strength": 0.0, "trajectories": 10000, "rows": 210000, "seconds": 10.34}
+{"scenario": "normal_dynamic_drift", "strength": 0.0, "trajectories": 10000, "rows": 210000, "seconds": 10.65}
+{"scenario": "normal_gradual_drift", "strength": 0.0, "trajectories": 10000, "rows": 210000, "seconds": 9.7}
+{"scenario": "persistent_signflip", "strength": 0.25, "trajectories": 10000, "rows": 210000, "seconds": 10.07}
+{"scenario": "persistent_signflip", "strength": 0.5, "trajectories": 10000, "rows": 210000, "seconds": 11.3}
+{"scenario": "persistent_signflip", "strength": 1.0, "trajectories": 10000, "rows": 210000, "seconds": 11.19}
+{"scenario": "intermittent_poisoning", "strength": 0.25, "trajectories": 10000, "rows": 210000, "seconds": 10.9}
+{"scenario": "intermittent_poisoning", "strength": 0.5, "trajectories": 10000, "rows": 210000, "seconds": 10.78}
+{"scenario": "intermittent_poisoning", "strength": 1.0, "trajectories": 10000, "rows": 210000, "seconds": 10.4}
+{"scenario": "reputation_attack", "strength": 0.25, "trajectories": 10000, "rows": 210000, "seconds": 9.13}
+{"scenario": "reputation_attack", "strength": 0.5, "trajectories": 10000, "rows": 210000, "seconds": 8.82}
+{"scenario": "reputation_attack", "strength": 1.0, "trajectories": 10000, "rows": 210000, "seconds": 11.06}
+{"scenario": "weak_stealth_attack", "strength": 0.25, "trajectories": 10000, "rows": 210000, "seconds": 10.61}
+{"scenario": "weak_stealth_attack", "strength": 0.5, "trajectories": 10000, "rows": 210000, "seconds": 9.98}
+{"scenario": "weak_stealth_attack", "strength": 1.0, "trajectories": 10000, "rows": 210000, "seconds": 9.63}
+All frozen-protocol cells completed.

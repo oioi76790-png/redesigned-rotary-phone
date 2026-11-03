@@ -1,0 +1,43 @@
+scenario,strength,method,alpha,trials,has_detector,false_alarm_window,false_alarm_rate,false_alarm_ci95,false_alarms,detection_rate,detection_ci95,at_risk,detected,censored,mean_delay,delay_mcse,restricted_mean_delay,prediction_mse,aggregation_mse,counterfactual_aggregation_mse,benign_envelope_violation_rate
+normal_unobserved_dynamic_drift,0.0,history_mean,0.01,10000,False,1..240,,,,,,,,,,,,0.35210108414866714,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,rolling_mean,0.01,10000,False,1..240,,,,,,,,,,,,0.010289950345269338,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,conditional,0.01,10000,False,1..240,,,,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,conditional_seq_fixed,0.01,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,1.0
+normal_unobserved_dynamic_drift,0.0,conditional_seq_rolling,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.010289950345269338,0.0004267021447955518,0.0,1.0
+normal_unobserved_dynamic_drift,0.0,conditional_seq_conservative,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,0.0
+normal_unobserved_dynamic_drift,0.0,full_seta_candidate,0.01,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.35209717873213286,0.0004744271303512029,4.765435122015338e-05,1.0
+normal_unobserved_dynamic_drift,0.0,history_mean,0.05,10000,False,1..240,,,,,,,,,,,,0.35210108414866714,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,rolling_mean,0.05,10000,False,1..240,,,,,,,,,,,,0.010289950345269338,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,conditional,0.05,10000,False,1..240,,,,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,conditional_seq_fixed,0.05,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,1.0
+normal_unobserved_dynamic_drift,0.0,conditional_seq_rolling,0.05,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.010289950345269338,0.0004267021447955518,0.0,1.0
+normal_unobserved_dynamic_drift,0.0,conditional_seq_conservative,0.05,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,0.0
+normal_unobserved_dynamic_drift,0.0,full_seta_candidate,0.05,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.35209717873213286,0.00048323066544949045,5.6567732573265906e-05,1.0
+normal_unobserved_dynamic_drift,0.0,history_mean,0.1,10000,False,1..240,,,,,,,,,,,,0.35210108414866714,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,rolling_mean,0.1,10000,False,1..240,,,,,,,,,,,,0.010289950345269338,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,conditional,0.1,10000,False,1..240,,,,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,
+normal_unobserved_dynamic_drift,0.0,conditional_seq_fixed,0.1,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,1.0
+normal_unobserved_dynamic_drift,0.0,conditional_seq_rolling,0.1,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.010289950345269338,0.0004267021447955518,0.0,1.0
+normal_unobserved_dynamic_drift,0.0,conditional_seq_conservative,0.1,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.35209717873213286,0.0004267021447955518,0.0,0.0
+normal_unobserved_dynamic_drift,0.0,full_seta_candidate,0.1,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.35209717873213286,0.0004870660589254853,6.0382596216213734e-05,1.0
+normal_unobserved_gradual_drift,0.0,history_mean,0.01,10000,False,1..240,,,,,,,,,,,,0.1411230590934059,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,rolling_mean,0.01,10000,False,1..240,,,,,,,,,,,,0.0005182420075797194,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,conditional,0.01,10000,False,1..240,,,,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,conditional_seq_fixed,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,1.0
+normal_unobserved_gradual_drift,0.0,conditional_seq_rolling,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0005182420075797194,0.00042634083255570763,0.0,0.0
+normal_unobserved_gradual_drift,0.0,conditional_seq_conservative,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,0.0
+normal_unobserved_gradual_drift,0.0,full_seta_candidate,0.01,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,1.0
+normal_unobserved_gradual_drift,0.0,history_mean,0.05,10000,False,1..240,,,,,,,,,,,,0.1411230590934059,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,rolling_mean,0.05,10000,False,1..240,,,,,,,,,,,,0.0005182420075797194,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,conditional,0.05,10000,False,1..240,,,,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,conditional_seq_fixed,0.05,10000,True,1..240,0.8232,"[0.8155990473675826, 0.8305527360856121]",8232.0,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,1.0
+normal_unobserved_gradual_drift,0.0,conditional_seq_rolling,0.05,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0005182420075797194,0.00042634083255570763,0.0,0.0
+normal_unobserved_gradual_drift,0.0,conditional_seq_conservative,0.05,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,0.0
+normal_unobserved_gradual_drift,0.0,full_seta_candidate,0.05,10000,True,1..240,0.8232,"[0.8155990473675826, 0.8305527360856121]",8232.0,,,,,,,,,0.14113361929776488,0.00042735449944106827,1.0099416393401903e-06,1.0
+normal_unobserved_gradual_drift,0.0,history_mean,0.1,10000,False,1..240,,,,,,,,,,,,0.1411230590934059,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,rolling_mean,0.1,10000,False,1..240,,,,,,,,,,,,0.0005182420075797194,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,conditional,0.1,10000,False,1..240,,,,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,
+normal_unobserved_gradual_drift,0.0,conditional_seq_fixed,0.1,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,1.0
+normal_unobserved_gradual_drift,0.0,conditional_seq_rolling,0.1,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.0005182420075797194,0.00042634083255570763,0.0,0.0
+normal_unobserved_gradual_drift,0.0,conditional_seq_conservative,0.1,10000,True,1..240,0.0,"[0.0, 0.00038399837067659573]",0.0,,,,,,,,,0.14113361929776488,0.00042634083255570763,0.0,0.0
+normal_unobserved_gradual_drift,0.0,full_seta_candidate,0.1,10000,True,1..240,1.0,"[0.9996160016293234, 1.0]",10000.0,,,,,,,,,0.14113361929776488,0.0004325589598194707,6.22021561047949e-06,1.0

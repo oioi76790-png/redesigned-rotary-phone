@@ -1,0 +1,19 @@
+Verified reports/stage3: raw hashes, source snapshots and summaries.
+Verified reports/stage3/misspecification: raw hashes, source snapshots and summaries.
+Verified reports/stage3/boundary: raw hashes, source snapshots and summaries.
+Replayed all 10000 trajectories of an unobserved-drift cell with current code.
+{
+  "status": "passed",
+  "raw_rows": 3990000,
+  "cells": 19,
+  "trials_per_cell": 10000,
+  "paired_prediction_rows": 40000,
+  "summary_rows": 399,
+  "unit_tests": {
+    "total": 34,
+    "passed": 33,
+    "skipped": 1,
+    "failed": 0
+  },
+  "full_cell_replayed": true
+}
