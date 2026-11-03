@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "seed": 2026110303,
+  "trials_per_cell": 10000,
+  "horizon": 240,
+  "onset": 41,
+  "reputation_onset": 161,
+  "alphas": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "calibration_budget_fraction": 0.1,
+  "lambdas": [
+    0.125,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "anchor_samples_per_context": 1024,
+  "initial_mean_samples": 1024,
+  "rolling_window": 1024,
+  "external_reference_batch": 64,
+  "noise_radius": 0.08,
+  "base_intercept": 0.55,
+  "context_slope": 0.25,
+  "attack_strengths": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "weak_attack_max_shift": 0.2,
+  "suspect_sample_mass": 0.2,
+  "clean_other_clients": 4,
+  "scenarios": [
+    "normal_boundary_rademacher"
+  ],
+  "predictors": [
+    "history_mean",
+    "rolling_mean",
+    "conditional"
+  ],
+  "sequential_strategies": [
+    "fixed",
+    "rolling",
+    "conservative"
+  ],
+  "semantics": "Predeclared high-variance bounded-null check; target and external references are independent Rademacher draws with mean zero."
+}

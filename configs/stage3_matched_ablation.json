@@ -1,0 +1,13 @@
+{
+  "source_config": "configs/stage3.json",
+  "seed": 2026110303,
+  "trials": 10000,
+  "training_budget": "Exactly the same two anchors (1024 each) for unconditional and conditional predictors; only use of context differs.",
+  "scenarios": [
+    "normal_iid",
+    "normal_non_iid",
+    "normal_dynamic_drift",
+    "normal_gradual_drift"
+  ],
+  "evaluation": "Prediction MSE only; no detector parameter changes or attack-label fitting."
+}
