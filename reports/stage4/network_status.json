@@ -1,0 +1,31 @@
+{
+  "runtime": {
+    "observations_current": true,
+    "phase": "running",
+    "network_mode": "restricted",
+    "network_state": "enforced",
+    "custom_allowed_hosts": [],
+    "official_hosts_in_effective_allowlist": [
+      {
+        "host": "www.cs.toronto.edu",
+        "listed": false
+      },
+      {
+        "host": "cave.cs.toronto.edu",
+        "listed": false
+      }
+    ]
+  },
+  "draft": {
+    "revision": 3,
+    "custom_rules": [
+      {
+        "host": "cave.cs.toronto.edu"
+      },
+      {
+        "host": "www.cs.toronto.edu"
+      }
+    ]
+  },
+  "observed_utc": "2026-11-03 14:32:20 UTC"
+}

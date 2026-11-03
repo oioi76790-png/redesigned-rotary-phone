@@ -1,0 +1,11 @@
+{
+  "alpha_global": 0.05,
+  "clients": 10,
+  "features": 1,
+  "runs": 36,
+  "calibration_fraction": 0.1,
+  "alpha_e_per_test": 0.000125,
+  "delta_per_test": 1.3888888888888891e-05,
+  "family_sum": 0.05,
+  "guarantee": "Budget arithmetic only; calibration failure bound still requires proof."
+}

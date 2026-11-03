@@ -18,6 +18,10 @@ class BoundedMeanEProcess:
     mean and mean_error_bound must be fixed BEFORE observing the current score.
     One instance covers the entire monitoring run; never reset on detected drift.
     """
+    lower_bound=-1.
+    upper_bound=1.
+    variance_proxy=(upper_bound-lower_bound)**2/4
+
     def __init__(self, alpha=.05, lambdas=(.125, .25, .5, 1., 2.)):
         positive = np.asarray(lambdas, dtype=float)
         if not 0 < alpha < 1:
@@ -34,9 +38,10 @@ class BoundedMeanEProcess:
             raise ValueError('score, mean and bound must be finite')
         if not -1 <= score <= 1 or not -1 <= mean <= 1 or not 0 <= mean_error_bound <= 2:
             raise ValueError('score/mean must be in [-1,1]; bound in [0,2]')
-        self.log_components += (self.lambdas*(score-mean)
-                                - np.abs(self.lambdas)*mean_error_bound
-                                - .5*self.lambdas**2)
+        self.last_log_factors=(self.lambdas*(score-mean)
+                              - np.abs(self.lambdas)*mean_error_bound
+                              - .5*self.variance_proxy*self.lambdas**2)
+        self.log_components += self.last_log_factors
         self.t += 1
         self.log_e = logmeanexp(self.log_components)
         self.alarmed = self.alarmed or self.log_e >= math.log(1/self.alpha)

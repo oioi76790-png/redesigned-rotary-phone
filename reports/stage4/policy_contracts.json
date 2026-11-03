@@ -1,0 +1,101 @@
+{
+  "scope": "Deterministic allocation contract only; no images, training, FPR, detection or accuracy measurements.",
+  "comparison": [
+    {
+      "policy": "defer",
+      "states": [
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED"
+      ],
+      "weights": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "total_client_mass": 0.0,
+      "server_mass": 1.0,
+      "detector_enabled": false,
+      "normality_certified": false,
+      "reason": "uncalibrated handling"
+    },
+    {
+      "policy": "capped",
+      "states": [
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED"
+      ],
+      "weights": [
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "total_client_mass": 0.19999999999999998,
+      "server_mass": 0.8,
+      "detector_enabled": false,
+      "normality_certified": false,
+      "reason": "uncalibrated handling"
+    },
+    {
+      "policy": "clean-warmup",
+      "states": [
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED",
+        "UNCALIBRATED"
+      ],
+      "weights": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "total_client_mass": 1.0,
+      "server_mass": 0.0,
+      "detector_enabled": false,
+      "normality_certified": false,
+      "reason": "explicit declared warmup only"
+    }
+  ]
+}

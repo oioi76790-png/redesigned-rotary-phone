@@ -151,13 +151,13 @@ class TrainingTests(unittest.TestCase):
                 return len(data)
             def __getitem__(self,index):
                 return data[index]
-        original_predict = app.ClientHistory.predict
+        original_prepare = app.ClientController.prepare_round
         original_round = app.train_round
         predictions = []
-        def predict(history,*args,**kwargs):
-            prediction = original_predict(history,*args,**kwargs)
-            predictions.append(prediction)
-            return prediction
+        def prepare(controller,*args,**kwargs):
+            snapshots = original_prepare(controller,*args,**kwargs)
+            predictions.extend(snapshots)
+            return snapshots
         def train(*args,**kwargs):
             # All clients' snapshots must precede each current-round training.
             self.assertEqual(len(predictions),3*kwargs['round_id'])
@@ -165,12 +165,12 @@ class TrainingTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             history = root/'trusted.json'
-            history.write_text(json.dumps({str(c):[dict(features=[.1]*16,provenance='test external source') for _ in range(8)] for c in range(3)}))
+            history.write_text(json.dumps({str(c):[dict(features=[.1]*16,context_value=float(v),provenance='test external source') for v in np.linspace(-.5,.5,8)] for c in range(3)}))
             argv = ['run','--clients','3','--rounds','2','--participation','.5',
                     '--attack','labelflip','--attack-start','1','--out',str(root),
                     '--trusted-history',str(history)]
             with patch.object(app.datasets,'CIFAR10',LocalCIFAR), patch('sys.argv',argv), \
-                    patch.object(app.ClientHistory,'predict',predict), patch.object(app,'train_round',train):
+                    patch.object(app.ClientController,'prepare_round',prepare), patch.object(app,'train_round',train):
                 app.main()
             logs = app.pd.read_csv(root/'clients_seed1.csv')
             self.assertTrue(logs.detector_enabled.all())

@@ -1,0 +1,69 @@
+test_batch_matches_scalar_process (test_calibration.CalibrationTests.test_batch_matches_scalar_process) ... ok
+test_conservative_bound_covers_all_means (test_calibration.CalibrationTests.test_conservative_bound_covers_all_means) ... ok
+test_delayed_clean_reference_only (test_calibration.CalibrationTests.test_delayed_clean_reference_only) ... ok
+test_filter_precedes_aggregation_and_all_rejected_is_noop (test_calibration.CalibrationTests.test_filter_precedes_aggregation_and_all_rejected_is_noop) ... ok
+test_local_archive_rejects_bad_checksum_before_extraction (test_calibration.CalibrationTests.test_local_archive_rejects_bad_checksum_before_extraction) ... ok
+test_rolling_includes_context_shift (test_calibration.CalibrationTests.test_rolling_includes_context_shift) ... ok
+test_stress_pairing_and_no_detector_metric_semantics (test_calibration.CalibrationTests.test_stress_pairing_and_no_detector_metric_semantics) ... ok
+test_unobserved_drift_is_not_a_valid_fixed_envelope (test_calibration.CalibrationTests.test_unobserved_drift_is_not_a_valid_fixed_envelope) ... ok
+test_width_and_union_parameters (test_calibration.CalibrationTests.test_width_and_union_parameters) ... ok
+test_cap_not_cancelled_by_aggregation_renormalization (test_client_control.ClientControlTests.test_cap_not_cancelled_by_aggregation_renormalization) ... ok
+test_context_model_really_uses_context_and_keeps_snapshot (test_client_control.ClientControlTests.test_context_model_really_uses_context_and_keeps_snapshot) ... ok
+test_context_precedes_and_does_not_follow_current_update (test_client_control.ClientControlTests.test_context_precedes_and_does_not_follow_current_update) ... ok
+test_defer_excludes_unknown_and_retains_server (test_client_control.ClientControlTests.test_defer_excludes_unknown_and_retains_server) ... ok
+test_family_budget_clients_features_runs (test_client_control.ClientControlTests.test_family_budget_clients_features_runs) ... ok
+test_logged_evidence_replays_without_reset (test_client_control.ClientControlTests.test_logged_evidence_replays_without_reset) ... ok
+test_missing_context_rejected (test_client_control.ClientControlTests.test_missing_context_rejected) ... ok
+test_monitored_clients_get_remaining_mass (test_client_control.ClientControlTests.test_monitored_clients_get_remaining_mass) ... ok
+test_three_state_transitions_and_alarm_latch (test_client_control.ClientControlTests.test_three_state_transitions_and_alarm_latch) ... ok
+test_unknown_is_not_normal_or_auto_calibrated (test_client_control.ClientControlTests.test_unknown_is_not_normal_or_auto_calibrated) ... ok
+test_warmup_requires_declaration_and_does_not_auto_admit (test_client_control.ClientControlTests.test_warmup_requires_declaration_and_does_not_auto_admit) ... ok
+test_actual_sgd_step_instrumentation_on_tensor_fixture (test_pilot_gate.PilotGateTests.test_actual_sgd_step_instrumentation_on_tensor_fixture) ... ok
+test_complete_registry_and_warmup_attack_separation (test_pilot_gate.PilotGateTests.test_complete_registry_and_warmup_attack_separation) ... ok
+test_existing_started_family_cannot_be_silently_restarted (test_pilot_gate.PilotGateTests.test_existing_started_family_cannot_be_silently_restarted) ... ok
+test_failed_data_gate_starts_no_training_and_records_all_unrun (test_pilot_gate.PilotGateTests.test_failed_data_gate_starts_no_training_and_records_all_unrun) ... ok
+test_overflow_rejected_before_server_mutation (test_pilot_gate.PilotGateTests.test_overflow_rejected_before_server_mutation) ... ok
+test_alarm_latches_without_reset (test_statistics.StatisticsTests.test_alarm_latches_without_reset) ... ok
+test_cumulative_mixture_matches_closed_form (test_statistics.StatisticsTests.test_cumulative_mixture_matches_closed_form) ... ok
+test_exact_conditional_expectation_on_two_point_null (test_statistics.StatisticsTests.test_exact_conditional_expectation_on_two_point_null) ... ok
+test_histories_independent_and_quarantine_bounded (test_statistics.StatisticsTests.test_histories_independent_and_quarantine_bounded) ... ok
+test_invalid_statistics_inputs (test_statistics.StatisticsTests.test_invalid_statistics_inputs) ... ok
+test_missed_detections_are_reported_as_censored (test_statistics.StatisticsTests.test_missed_detections_are_reported_as_censored) ... ok
+test_no_auto_admission_and_frozen_prediction (test_statistics.StatisticsTests.test_no_auto_admission_and_frozen_prediction) ... ok
+test_old_formula_degenerates (test_statistics.StatisticsTests.test_old_formula_degenerates) ... ok
+test_signal_can_grow_and_alarm_without_threshold_change (test_statistics.StatisticsTests.test_signal_can_grow_and_alarm_without_threshold_change) ... ok
+test_simulation_seed_and_drift_assumptions (test_statistics.StatisticsTests.test_simulation_seed_and_drift_assumptions) ... ok
+test_attack_schedule_and_distinct_start (test_training.TrainingTests.test_attack_schedule_and_distinct_start) ... ok
+test_bad_partition_and_empty_evaluation (test_training.TrainingTests.test_bad_partition_and_empty_evaluation) ... ok
+test_cli_minimal_pipeline_with_trusted_history_and_no_download (test_training.TrainingTests.test_cli_minimal_pipeline_with_trusted_history_and_no_download) ... ok
+test_cuda_train_flatten_aggregate_and_evaluate (test_training.TrainingTests.test_cuda_train_flatten_aggregate_and_evaluate) ... skipped 'CUDA unavailable: actual GPU path not executed'
+test_empty_round_is_noop (test_training.TrainingTests.test_empty_round_is_noop) ... ok
+test_fedavg_matches_weighted_client_endpoints (test_training.TrainingTests.test_fedavg_matches_weighted_client_endpoints) ... ok
+test_invalid_aggregate_is_atomic (test_training.TrainingTests.test_invalid_aggregate_is_atomic) ... ok
+test_label_attack_changes_actual_local_gradient (test_training.TrainingTests.test_label_attack_changes_actual_local_gradient) ... ok
+test_label_mapping_is_derangement_repeatable_and_nonmutating (test_training.TrainingTests.test_label_mapping_is_derangement_repeatable_and_nonmutating) ... ok
+test_local_training_global_unchanged_and_cpu_updates (test_training.TrainingTests.test_local_training_global_unchanged_and_cpu_updates) ... ok
+test_nonfloating_buffers_preserved (test_training.TrainingTests.test_nonfloating_buffers_preserved) ... ok
+test_participation_normalizes_actual_sample_counts (test_training.TrainingTests.test_participation_normalizes_actual_sample_counts) ... ok
+test_partition_coverage_repeatability_and_empty_clients (test_training.TrainingTests.test_partition_coverage_repeatability_and_empty_clients) ... ok
+test_round_applies_attacks_and_keeps_empty_clients_out (test_training.TrainingTests.test_round_applies_attacks_and_keeps_empty_clients_out) ... ok
+test_signed_features_detect_opposite_direction (test_training.TrainingTests.test_signed_features_detect_opposite_direction) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 0.273s
+
+OK (skipped=1)
+{
+  "status": "BLOCKED_AT_REAL_DATA_GATE",
+  "runs_planned": 36,
+  "runs_started": 0,
+  "runs_completed": 0,
+  "config_sha256": "bf262184089e1d5ad068b5ab2a2bbe25b7fc81ea564dba8c402a61fd00e61d05",
+  "real_data_gate_passed": false,
+  "metrics_available": false,
+  "reason": "fixture: unavailable real data",
+  "gate_exit_code": 2
+}
+Conditional validity assumed, not certified. State policy=defer; no non-alarm admission.
+round=001 loss=2.2436 acc=0.2000 participants=1
+round=002 loss=2.2049 acc=0.5000 participants=1

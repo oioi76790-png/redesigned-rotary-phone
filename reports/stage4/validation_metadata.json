@@ -1,0 +1,42 @@
+{
+  "stage": "4",
+  "base_commit": "79c3931b07551df8d17abef83d3e6289f0d9582d",
+  "branch": "seta-real-pilot",
+  "python": "3.11.17",
+  "torch": "2.15.0+cpu",
+  "torchvision": "0.29.2+cpu",
+  "numpy": "2.4.6",
+  "cuda_available": false,
+  "tests": {
+    "total": 50,
+    "passed": 49,
+    "skipped": 1,
+    "failed": 0
+  },
+  "implementation_defaults": {
+    "local_epochs": 1,
+    "local_learning_rate": 0.03,
+    "prox": 0.0,
+    "training_batch_size": 64,
+    "predictor_ridge": 0.001,
+    "feature_dimension": 16,
+    "note": "Source defaults, not evidence of any real-data run."
+  },
+  "actual_real_train_images_used": 0,
+  "actual_real_pilot_runs": 0,
+  "real_metrics_available": false,
+  "source_sha256": {
+    "client_control.py": "f3bc058d422392701918be028acda4cf478144a4865619be3330c1438b021bcb",
+    "run_cifar_sequential.py": "20a66159829a7fed0f54ff5eb0f3e8709ec9b5c64527877831ac34f49c245e84",
+    "seta_statistics.py": "ee0a4f49e85bfe216cddde4c98ed246ac0aa94601af29abe88c5f5ad17505361",
+    "monitoring_audit.py": "d9dcfc0f3a7c536ca604924bff14ac74a4c25713473fbc823fbb5b512bfc0729",
+    "cifar_smoke.py": "a4dad5002e9dcdf18319ee00be2d5057e69cf1ac7080dcee942e8279c950f4b3",
+    "pilot_cifar.py": "604eaf5b5c485953fc398409452404c350e6c0decb3c4c9b34041dcf11135a59",
+    "compare_client_policies.py": "9ad327a9b816207911ba4f02f8cabdaa1b8b4d056fd406231b642ebf612b9656",
+    "build_stage4_report.py": "26ac22b6afa2681c68b3b355a33330f3d6b8fa7cf5c4e59239d53c093e4123f1",
+    "configs/stage4_pilot.json": "bf262184089e1d5ad068b5ab2a2bbe25b7fc81ea564dba8c402a61fd00e61d05",
+    "tests/test_client_control.py": "3765d47894a8e97856c4ecbbf36ad6805b4b6995a78db785a86a76b9e02826c7",
+    "tests/test_pilot_gate.py": "2b9018730c71e9bdf50746c6f32076bbb739b3f281ad148159e460439a91cb82",
+    "tests/test_training.py": "d4d6083bd32435262e6d38d80d1cb28c81d237de0df60932c203abfae406cb97"
+  }
+}

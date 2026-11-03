@@ -3,9 +3,10 @@
 This is a development and mathematical-validation scaffold, **not** a validated
 SETA-FL reproduction. The detector's theorem requires a correct predictable
 conditional-mean envelope. Fitting history alone does not establish that envelope.
-Default aggregation remains sample-weighted FedAvg. An opt-in
-`--aggregation evidence-filter` excludes latched alarms before aggregation;
-this is an experimental candidate pipeline, not a validated complete method.
+Aggregation is sample weighted subject to explicit client state policies. Unknown
+clients are deferred by default; capped weights or predeclared clean warmup are
+alternatives. `MONITORED` does not mean certified normal. This is an experimental
+pipeline, not a validated complete method.
 
 ## Files
 
@@ -20,6 +21,11 @@ this is an experimental candidate pipeline, not a validated complete method.
 - [reports/stage3/STAGE3_REPORT.zh-CN.md](reports/stage3/STAGE3_REPORT.zh-CN.md):
   10,000-replication stress tests, calibration strategies, matched-data ablations,
   plots and negative results.
+- [docs/STAGE4_ALIGNMENT.md](docs/STAGE4_ALIGNMENT.md): complete theory-to-code
+  variable mapping, context differences, states and experiment-family error budget.
+- `client_control.py`: predictable contextual regression, independent client states,
+  reserved calibration/sequential budgets and server-retaining capped weights.
+- `pilot_cifar.py`: gated real-data pilot with an immutable 36-run registry.
 - `config.example.json`: pilot suggestions only; not automatically loaded.
 
 ## Environment and validation
@@ -87,18 +93,25 @@ See [docs/CIFAR_IMPORT.md](docs/CIFAR_IMPORT.md) for integrity-checked local arc
 or batch-directory import. `python cifar_smoke.py --root ./data` uses only 32 real
 training images and one aggregation when data exists; otherwise it reports a
 blocked result and does not substitute fake data.
-For a later authorized run, the CLI supports:
 
-```bash
-python run_cifar_sequential.py --clients 5 --rounds 2 --attack none --device cpu
-# Example of a future intermittent label-flip run:
-python run_cifar_sequential.py --clients 5 --rounds 2 --attack labelflip \
-  --attack-start 1 --attack-mode intermittent --attack-period 4 \
-  --attack-duration 2 --participation 0.5 --device cpu
-```
+For the stage-four pilot use `python pilot_cifar.py --root ./data --download`
+(or omit `--download` after official local import). A fresh checksum-verified
+32-image test must pass first. The predeclared protocol uses 10 clients, 20 rounds,
+3 seeds, IID/Dirichlet, no attack/Sign Flipping and three admission policies. It
+uses 2000 train and 1000 test images; this is a small-subset pilot, not a full-data
+benchmark. The current official proxy response is 403, so no real pilot metrics
+exist. See `reports/stage4/pilot_status.json` and `run_registry.csv`.
 
-A round includes all selected clients' local data. These commands are not a
-tiny-data smoke test. Use the unit tests for the current no-full-training stage.
+The ordinary CLI now requires `context_value` in external history records. Its
+default `defer` policy does not aggregate clients with no references. To study
+assumed attack-free warmup in a controlled experiment, explicitly use
+`--uncalibrated-policy clean-warmup --declare-clean-warmup --warmup-rounds 8`
+with more than eight rounds and attacks starting later. This is a protocol
+assumption, not inferred normality. The stage-four runner supplies these settings.
+`--bound-mode assumed` is uncertified; `conservative` uses a valid but powerless
+universal envelope. No claim of real conditional drift adaptation is established.
+A round includes all selected clients' local data unless dataset limits are set.
+Use the gated pilot entry point for real experiments and unit tests for code checks.
 Nonempty clients are eligible, `ceil(participation * eligible)` are sampled before
 training, and sample-count weights are normalized over actual participants.
 Empty clients never construct a shuffled loader; an all-empty round is a no-op.
@@ -109,8 +122,9 @@ with no fixed labels and do not mutate the underlying dataset.
 ## Trusted history and prediction
 
 The detector is disabled for a client until it has at least eight independently
-validated normal feature vectors. No current update, even a non-alarm, enters
-normal history automatically. Current observations are quarantined.
+validated or explicitly protocol-declared reference vectors. No monitoring update,
+even a non-alarm, enters normal history automatically. Current observations are
+quarantined; declared warmup admission is a separate explicit operation.
 Provide `--trusted-history path.json` only from an externally validated source:
 
 ```json
@@ -118,6 +132,7 @@ Provide `--trusted-history path.json` only from an externally validated source:
   "0": [
     {"features": [0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
                   0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+     "context_value": 0.0,
      "provenance": "independent clean validation record identifier"}
   ]
 }
@@ -131,7 +146,8 @@ All client predictions are frozen before current-round training.
 `--mean-error-bound` is an **assumed** upper bound on conditional mean prediction
 error. Its default is not a statistical certificate. Without a justified bound,
 there is no strict real-FL false-alarm guarantee. `--family-alpha` is split across
-the fixed client set, not reallocated as participation changes. The CLI
+the fixed client set, independent scalar tests and predeclared run family, with
+separate sequential and calibration shares; it is not reallocated as participation changes. The CLI
 `--alpha` remains Dirichlet concentration, not the test significance level.
 The program logs whether each detector is enabled, its score/prediction/evidence,
 trusted count, actual weight, and latched alarm to `results/`.
