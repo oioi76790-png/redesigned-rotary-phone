@@ -1,0 +1,12 @@
+{
+  "dataset": "CIFAR-10",
+  "model": "SmallCNN",
+  "clients": 10,
+  "rounds": 30,
+  "dirichlet_alpha": 0.5,
+  "seeds": [1, 2, 3],
+  "attack": "signflip",
+  "drift_round": 16,
+  "device": "cpu",
+  "status": "pilot scaffold; not a validated experiment"
+}
