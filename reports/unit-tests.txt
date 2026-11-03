@@ -1,0 +1,33 @@
+test_alarm_latches_without_reset (test_statistics.StatisticsTests.test_alarm_latches_without_reset) ... ok
+test_cumulative_mixture_matches_closed_form (test_statistics.StatisticsTests.test_cumulative_mixture_matches_closed_form) ... ok
+test_exact_conditional_expectation_on_two_point_null (test_statistics.StatisticsTests.test_exact_conditional_expectation_on_two_point_null) ... ok
+test_histories_independent_and_quarantine_bounded (test_statistics.StatisticsTests.test_histories_independent_and_quarantine_bounded) ... ok
+test_invalid_statistics_inputs (test_statistics.StatisticsTests.test_invalid_statistics_inputs) ... ok
+test_missed_detections_are_reported_as_censored (test_statistics.StatisticsTests.test_missed_detections_are_reported_as_censored) ... ok
+test_no_auto_admission_and_frozen_prediction (test_statistics.StatisticsTests.test_no_auto_admission_and_frozen_prediction) ... ok
+test_old_formula_degenerates (test_statistics.StatisticsTests.test_old_formula_degenerates) ... ok
+test_signal_can_grow_and_alarm_without_threshold_change (test_statistics.StatisticsTests.test_signal_can_grow_and_alarm_without_threshold_change) ... ok
+test_simulation_seed_and_drift_assumptions (test_statistics.StatisticsTests.test_simulation_seed_and_drift_assumptions) ... ok
+test_attack_schedule_and_distinct_start (test_training.TrainingTests.test_attack_schedule_and_distinct_start) ... ok
+test_bad_partition_and_empty_evaluation (test_training.TrainingTests.test_bad_partition_and_empty_evaluation) ... ok
+test_cli_minimal_pipeline_with_trusted_history_and_no_download (test_training.TrainingTests.test_cli_minimal_pipeline_with_trusted_history_and_no_download) ... ok
+test_cuda_train_flatten_aggregate_and_evaluate (test_training.TrainingTests.test_cuda_train_flatten_aggregate_and_evaluate) ... skipped 'CUDA unavailable: actual GPU path not executed'
+test_empty_round_is_noop (test_training.TrainingTests.test_empty_round_is_noop) ... ok
+test_fedavg_matches_weighted_client_endpoints (test_training.TrainingTests.test_fedavg_matches_weighted_client_endpoints) ... ok
+test_invalid_aggregate_is_atomic (test_training.TrainingTests.test_invalid_aggregate_is_atomic) ... ok
+test_label_attack_changes_actual_local_gradient (test_training.TrainingTests.test_label_attack_changes_actual_local_gradient) ... ok
+test_label_mapping_is_derangement_repeatable_and_nonmutating (test_training.TrainingTests.test_label_mapping_is_derangement_repeatable_and_nonmutating) ... ok
+test_local_training_global_unchanged_and_cpu_updates (test_training.TrainingTests.test_local_training_global_unchanged_and_cpu_updates) ... ok
+test_nonfloating_buffers_preserved (test_training.TrainingTests.test_nonfloating_buffers_preserved) ... ok
+test_participation_normalizes_actual_sample_counts (test_training.TrainingTests.test_participation_normalizes_actual_sample_counts) ... ok
+test_partition_coverage_repeatability_and_empty_clients (test_training.TrainingTests.test_partition_coverage_repeatability_and_empty_clients) ... ok
+test_round_applies_attacks_and_keeps_empty_clients_out (test_training.TrainingTests.test_round_applies_attacks_and_keeps_empty_clients_out) ... ok
+test_signed_features_detect_opposite_direction (test_training.TrainingTests.test_signed_features_detect_opposite_direction) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.228s
+
+OK (skipped=1)
+Conditional validity assumed, not certified. FedAvg baseline; no automatic trusted-history admission.
+round=001 loss=2.2436 acc=0.2000 participants=1
+round=002 loss=2.2049 acc=0.5000 participants=1

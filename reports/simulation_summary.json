@@ -1,0 +1,180 @@
+{
+  "seed": 20261103,
+  "trials_per_scenario": 1000,
+  "horizon": 240,
+  "onset": 41,
+  "alpha": 0.05,
+  "lambdas": [
+    0.125,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "trusted_history_size": 64,
+  "description": "Scalar bounded-feature statistical simulation; no CIFAR-10 or neural-network performance claims.",
+  "delay_definition": "inclusive rounds since onset, conditional on detection and no pre-onset alarm; nondetections separately censored",
+  "restricted_delay_definition": "min(delay, horizon-onset+1), at-risk trials, nondetections assigned full window",
+  "summary": [
+    {
+      "scenario": "normal_iid",
+      "trials": 1000,
+      "horizon": 240,
+      "attack_onset": null,
+      "false_alarm_window": "1..240",
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "false_alarm_wilson95": [
+        2.168404344971009e-19,
+        0.0038267584855551234
+      ],
+      "at_risk_trials": null,
+      "detections": null,
+      "detection_rate": null,
+      "detection_wilson95": null,
+      "mean_delay_detected": null,
+      "mean_delay_detected_mcse": null,
+      "restricted_mean_delay": null,
+      "censored_trials": null,
+      "null_envelope_violations": 0
+    },
+    {
+      "scenario": "normal_non_iid",
+      "trials": 1000,
+      "horizon": 240,
+      "attack_onset": null,
+      "false_alarm_window": "1..240",
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "false_alarm_wilson95": [
+        2.168404344971009e-19,
+        0.0038267584855551234
+      ],
+      "at_risk_trials": null,
+      "detections": null,
+      "detection_rate": null,
+      "detection_wilson95": null,
+      "mean_delay_detected": null,
+      "mean_delay_detected_mcse": null,
+      "restricted_mean_delay": null,
+      "censored_trials": null,
+      "null_envelope_violations": 0
+    },
+    {
+      "scenario": "normal_drift_uncovered",
+      "trials": 1000,
+      "horizon": 240,
+      "attack_onset": null,
+      "false_alarm_window": "1..240",
+      "false_alarms": 1000,
+      "false_alarm_rate": 1.0,
+      "false_alarm_wilson95": [
+        0.996173241514445,
+        1.0
+      ],
+      "at_risk_trials": null,
+      "detections": null,
+      "detection_rate": null,
+      "detection_wilson95": null,
+      "mean_delay_detected": null,
+      "mean_delay_detected_mcse": null,
+      "restricted_mean_delay": null,
+      "censored_trials": null,
+      "null_envelope_violations": 1000
+    },
+    {
+      "scenario": "normal_drift_covered",
+      "trials": 1000,
+      "horizon": 240,
+      "attack_onset": null,
+      "false_alarm_window": "1..240",
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "false_alarm_wilson95": [
+        2.168404344971009e-19,
+        0.0038267584855551234
+      ],
+      "at_risk_trials": null,
+      "detections": null,
+      "detection_rate": null,
+      "detection_wilson95": null,
+      "mean_delay_detected": null,
+      "mean_delay_detected_mcse": null,
+      "restricted_mean_delay": null,
+      "censored_trials": null,
+      "null_envelope_violations": 0
+    },
+    {
+      "scenario": "persistent_signflip",
+      "trials": 1000,
+      "horizon": 240,
+      "attack_onset": 41,
+      "false_alarm_window": "1..40",
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "false_alarm_wilson95": [
+        2.168404344971009e-19,
+        0.0038267584855551234
+      ],
+      "at_risk_trials": 1000,
+      "detections": 1000,
+      "detection_rate": 1.0,
+      "detection_wilson95": [
+        0.996173241514445,
+        1.0
+      ],
+      "mean_delay_detected": 27.854,
+      "mean_delay_detected_mcse": 0.025521272212319968,
+      "restricted_mean_delay": 27.854,
+      "censored_trials": 0,
+      "null_envelope_violations": null
+    },
+    {
+      "scenario": "intermittent_poisoning",
+      "trials": 1000,
+      "horizon": 240,
+      "attack_onset": 41,
+      "false_alarm_window": "1..40",
+      "false_alarms": 0,
+      "false_alarm_rate": 0.0,
+      "false_alarm_wilson95": [
+        2.168404344971009e-19,
+        0.0038267584855551234
+      ],
+      "at_risk_trials": 1000,
+      "detections": 1000,
+      "detection_rate": 1.0,
+      "detection_wilson95": [
+        0.996173241514445,
+        1.0
+      ],
+      "mean_delay_detected": 76.0,
+      "mean_delay_detected_mcse": 0.09537870358259802,
+      "restricted_mean_delay": 76.0,
+      "censored_trials": 0,
+      "null_envelope_violations": null
+    },
+    {
+      "scenario": "normal_boundary_rademacher",
+      "trials": 1000,
+      "horizon": 240,
+      "attack_onset": null,
+      "false_alarm_window": "1..240",
+      "false_alarms": 19,
+      "false_alarm_rate": 0.019,
+      "false_alarm_wilson95": [
+        0.012196885750790904,
+        0.02948445591231312
+      ],
+      "at_risk_trials": null,
+      "detections": null,
+      "detection_rate": null,
+      "detection_wilson95": null,
+      "mean_delay_detected": null,
+      "mean_delay_detected_mcse": null,
+      "restricted_mean_delay": null,
+      "censored_trials": null,
+      "null_envelope_violations": 0
+    }
+  ]
+}
